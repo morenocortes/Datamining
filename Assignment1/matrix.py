@@ -110,7 +110,8 @@ class Matrix():
                 temp = 0
                 for k in range(mLength):
                     temp += int(M1[i][k]) * int(m2_Trans[i][k])
-                    M1_DotProduct_M2[i][j] = temp
+
+                M1_DotProduct_M2[i][j] = temp
 
         return M1_DotProduct_M2
 

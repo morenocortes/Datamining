@@ -35,10 +35,12 @@ def main():
     M1 = myMatrix.getMatrix("Numbers1.txt", matrixSize)
     M2 = myMatrix.getMatrix("Numbers2.txt", matrixSize)
     M1_Multiply_M2 = myMatrix.multiply(M1, M2)
+    M1_DotProduct_M2 = myMatrix.dotProduct(M1, M2)
     M1_Trans = myMatrix.transpose(M1)
-    M1_DotProduct_M2 = myMatrix.dotProduct(M1, M1)
-    m0 = myMatrix.createEmptyMatrix(4)
+    M2_Trans = myMatrix.transpose(M2)
     M1_Divide_M2 = myMatrix.divide(M1, M2)
+    M1Trans_Multiply_M2Trans = myMatrix.multiply(M1_Trans, M2_Trans)
+    M1Trans_DotProduct_M2Trans = myMatrix.dotProduct(M1_Trans, M2_Trans)
     print "_______________________________________________________________"
     print "_______________________________________________________________"
 
@@ -48,14 +50,18 @@ def main():
     myMatrix.printMatrix(M2); print
     print "Multiply M1 by M2:"
     myMatrix.printMatrix(M1_Multiply_M2); print
-    print "Transpose M1:"
-    myMatrix.printMatrix(M1_Trans); print
     print "DotProduct M1 to M2:"
     myMatrix.printMatrix(M1_DotProduct_M2); print
+    print "M1 Transpose:"
+    myMatrix.printMatrix(M1_Trans); print
+    print "M2 Transpose:"
+    myMatrix.printMatrix(M2_Trans); print
     print "Divide M1 by M2"
     myMatrix.printMatrix(M1_Divide_M2); print
-    print "Zero Matrix"
-    myMatrix.printMatrix(m0); print
+    print "Multiply M1 Transpose by M2 Transpose"
+    myMatrix.printMatrix(M1Trans_Multiply_M2Trans); print
+    print "Dot Product M1 Transpose by M2 Transpose"
+    myMatrix.printMatrix(M1Trans_DotProduct_M2Trans); print
     print "_______________________________________________________________"
     print "_______________________________________________________________"
 
