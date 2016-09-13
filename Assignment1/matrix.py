@@ -66,7 +66,7 @@ class Matrix():
         for i in range(m1Length):
             for j in range(m2Length):
                 temp = int(M1[i][j]) * int(M2[i][j])
-                M1_Multiply_M2[i][j] = temp
+                M1_Multiply_M2[i][j] = str(temp)
 
         return M1_Multiply_M2
 

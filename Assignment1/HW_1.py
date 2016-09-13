@@ -9,6 +9,10 @@ def checkForValidInteger(arg):
     try:
         arg = int(arg)
 
+        if(arg <= 3):
+            print "Please enter a value greater than 3"
+            exit()
+
     except ValueError:
         print "Not a Valid Interger. Please Enter An Integer (:"
         exit()
