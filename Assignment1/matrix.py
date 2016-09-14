@@ -56,8 +56,8 @@ class Matrix():
 
         return matrix
 
-    #multiply
-    def multiply(self, M1, M2):
+    #dotProduct
+    def dotProduct(self, M1, M2):
         m1Length = len(M1)
         m2Length = len(M2)
 
@@ -99,7 +99,7 @@ class Matrix():
 
         return M_Trans
 
-    def dotProduct(self, M1, M2):
+    def multiply(self, M1, M2):
         mLength = len(M1)
         m2_Trans = self.transpose(M2)
 
