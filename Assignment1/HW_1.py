@@ -1,16 +1,25 @@
-#finished part A and B move on to C
+#Luis Moreno, Richard Stelly
+#CS512: Dataming
+#Assignment 1
+#Purpose:
+#   Write a program that uses matrices and does operations on those matrices
+#file: HW_1.py
 
 from matrix import Matrix
-#part A
 
-#User Input
 
+#checkForValidInteger
+# Check input from the user and validates that it is an integer grater than 3
+#
 def checkForValidInteger(arg):
     try:
         arg = int(arg)
 
         if(arg <= 3):
-            print "Please enter a value greater than 3"
+            print "Error: Please enter a value greater than 3. Program ends here"
+            exit()
+        if(arg > 6):
+            print "Error: Please enter a less than 7. Program ends here"
             exit()
 
     except ValueError:
@@ -31,44 +40,62 @@ def getInput(arg):
 
 def main():
 
-    #Prompts user for Interger and handle if input is not an Integer
+    #Prompts user for Integer and handle if input is not an Integer
     matrixSize = checkForValidInteger(getInput("Please Enter Integer >= 3: "))
 
     myMatrix = Matrix(matrixSize)
 
-    M1 = myMatrix.getMatrix("Numbers1.txt", matrixSize)
-    M2 = myMatrix.getMatrix("Numbers2.txt", matrixSize)
+    M1 = myMatrix.getMatrix("file1.txt", matrixSize)
+    M2 = myMatrix.getMatrix("file2.txt", matrixSize)
     M1_Multiply_M2 = myMatrix.multiply(M1, M2)
     M1_DotProduct_M2 = myMatrix.dotProduct(M1, M2)
     M1_Trans = myMatrix.transpose(M1)
     M2_Trans = myMatrix.transpose(M2)
     M1_Divide_M2 = myMatrix.divide(M1, M2)
+    M1Trans_Divide_M2Trans = myMatrix.divide(M1_Trans, M2_Trans)
     M1Trans_Multiply_M2Trans = myMatrix.multiply(M1_Trans, M2_Trans)
     M1Trans_DotProduct_M2Trans = myMatrix.dotProduct(M1_Trans, M2_Trans)
-    print "_______________________________________________________________"
-    print "_______________________________________________________________"
+    print "________________________________________________________"
+    print "________________________________________________________"
 
-    print "M1:"
+    print "The content of the first matrix is:"
     myMatrix.printMatrix(M1); print
-    print "M2:"
+    print "--------------------------------------------------------"
+    print "--------------------------------------------------------"
+    print "The content of the second matrix is:"
     myMatrix.printMatrix(M2); print
-    print "Multiply M1 by M2:"
+    print "--------------------------------------------------------"
+    print "--------------------------------------------------------"
+    print "The product of the two matrices is:"
     myMatrix.printMatrix(M1_Multiply_M2); print
-    print "DotProduct M1 to M2:"
+    print "--------------------------------------------------------"
+    print "--------------------------------------------------------"
+    print "The dot-product of the two matrices is:"
     myMatrix.printMatrix(M1_DotProduct_M2); print
-    print "M1 Transpose:"
-    myMatrix.printMatrix(M1_Trans); print
-    print "M2 Transpose:"
-    myMatrix.printMatrix(M2_Trans); print
-    print "Divide M1 by M2"
+    print "--------------------------------------------------------"
+    print "--------------------------------------------------------"
+    print "The result of matrix1 divided by matrix2 is:"
     myMatrix.printMatrix(M1_Divide_M2); print
-    print "Multiply M1 Transpose by M2 Transpose"
+    print "--------------------------------------------------------"
+    print "--------------------------------------------------------"
+    print "The transpose of the first matrix is:"
+    myMatrix.printMatrix(M1_Trans); print
+    print "--------------------------------------------------------"
+    print "--------------------------------------------------------"
+    print "The transpose of the second matrix is:"
+    myMatrix.printMatrix(M2_Trans); print
+    print "--------------------------------------------------------"
+    print "--------------------------------------------------------"
+    print "The dot product of the transpose of the two matrices is:"
     myMatrix.printMatrix(M1Trans_Multiply_M2Trans); print
-    print "Dot Product M1 Transpose by M2 Transpose"
+    print "--------------------------------------------------------"
+    print "--------------------------------------------------------"
+    print "The result of matrix1 divided by matrix2 is:"
     myMatrix.printMatrix(M1Trans_DotProduct_M2Trans); print
-    print "_______________________________________________________________"
-    print "_______________________________________________________________"
-
-
+    print "--------------------------------------------------------"
+    print "--------------------------------------------------------"
+    print "The result of matrix1 divided by matrix2 is:"
+    myMatrix.printMatrix(M1Trans_Divide_M2Trans); print
+    print "-----------------------End Program----------------------"
 if __name__ == "__main__":
   main()
