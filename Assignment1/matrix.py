@@ -6,7 +6,7 @@
 #file: matrix.py
 
 class Matrix():
-    #constructor
+    #constructors
     #
     def __init__(self, matrixSize):
             #create empty matrix
@@ -27,21 +27,25 @@ class Matrix():
         matrixSize = N * N
         numbersList = []
         count = 0
+        lineCounter = 0
 
         #open file and fill list of numbers
         try:
             numbersFile = open(str(fileName), "r")
             for line in numbersFile:
+                
                 for i in line.split():
                     count += 1
-
                     numbersList.append(i)
-                    #number = i
 
                     #exit file after got the need amount of numbers for matrix
+                    if count == N:
+                        continue
                     if count == matrixSize:
                         break
 
+                if count == N:
+                    continue
                 if count == matrixSize:
                     #close file
                     numbersFile.close()
@@ -118,7 +122,6 @@ class Matrix():
     #
     def multiply(self, M1, M2):
         mLength = len(M1)
-        m2_Trans = self.transpose(M2)
 
         M1_DotProduct_M2 = self.createEmptyMatrix(mLength)
 
@@ -143,4 +146,29 @@ class Matrix():
 
             print
 
+#checkForValidInteger
+# Check input from the user and validates that it is an integer grater than 3
+#
+    def checkForValidInteger(self, arg):
+        try:
+            arg = int(arg)
+
+            if(arg <= 3):
+                print "Error: Please enter a value greater than 3. Program ends here"
+                exit()
+
+        except ValueError:
+            print "Not a Valid Interger. Please Enter An Integer (:"
+            exit()
+
+        return arg
+
+
+    #getInput
+    #Prompts the User for Input
+    #
+    #
+    def getInput(self, arg):
+        userInput = raw_input(str(arg))
+        return userInput
 #End Matrix Class
